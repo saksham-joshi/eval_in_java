@@ -18,14 +18,6 @@ class evaluater {
         preference.put('-', 1);
     }
 
-    public static void main(String[] args) {
-        String str = "1289/(-2387*392)+-387";
-        evaluater e1 = new evaluater();
-
-        System.out.println("\n =| Answer = " + e1.evaluate(str));
-
-    }
-
     public String evaluate(String str) {
         str = str.replace("÷", "/").replace("x", "*").replace("+-", "-").replace("-+", "-").strip();
         try {
@@ -173,6 +165,3 @@ class evaluater {
         return true;
     }
 }
-
-// 1289/-2387*392+-387
-// -598.68328446

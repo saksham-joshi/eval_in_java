@@ -1,3 +1,5 @@
+package com.androidcalculator;
+
 import java.util.Stack;
 import java.util.Queue;
 import java.util.LinkedList;
@@ -8,7 +10,7 @@ class evaluater {
     HashMap<Character, Integer> preference = new HashMap<>();
 
     evaluater() {
-        
+
         preference.put('^', 3);
 
         preference.put('/', 2);
@@ -19,7 +21,7 @@ class evaluater {
     }
 
     public String evaluate(String str) {
-        str = str.replace("÷", "/").replace("x", "*").replace("+-", "-").replace("-+", "-").strip();
+        str = str.replace("÷", "/").replace("x", "*").replace("+-", "-").replace("-+", "-").replace("×","*") .strip();
         try {
             Queue<String> exp = postfix(str);
             System.out.println(exp);
@@ -90,11 +92,11 @@ class evaluater {
             }
             else if (is_operator(ch)) {
                 try{
-                    while (preference.get(ch) <= preference.get(stk.lastElement())) { 
-                        exp.add(String.valueOf(stk.pop()));    
+                    while (preference.get(ch) <= preference.get(stk.lastElement())) {
+                        exp.add(String.valueOf(stk.pop()));
                     }
                 }
-                catch(Exception e){  } 
+                catch(Exception e){  }
                 stk.push(ch);
             }
             else if(ch == ')'){
@@ -106,7 +108,7 @@ class evaluater {
                 }
                 catch(Exception e){ }
             }
-            
+
         }
         try {
             while (true) {

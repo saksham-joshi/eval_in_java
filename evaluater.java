@@ -1,4 +1,3 @@
-package com.androidcalculator;
 
 import java.util.Stack;
 import java.util.Queue;
